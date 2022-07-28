@@ -1,0 +1,38 @@
+@use '_media' as med
+@use '_sizes' as s
+@use '_colors' as c
+
+@mixin widthHeight($width, $height)
+	width: $width
+	height: $height
+@mixin flexJA($justifyContent, $alignItems)
+	display: flex
+	justify-content: $justifyContent
+	align-items: $alignItems
+@mixin positionAbs($top, $right, $bottom, $left)
+	position: absolute
+	top: $top
+	right: $right
+	bottom: $bottom
+	left: $left
+@mixin before($content, $display)
+	display: $display
+	content: $content
+@mixin wrapper()
+	padding: 0 s.$paddingDesktop
+	max-width: s.$widthDesktop
+	position: relative
+	@media screen and #{med.$tablet}
+		padding: 0 s.$paddingTablet
+	@media screen and #{med.$mobile}
+		padding: 0 1.5rem
+@mixin plug()
+	@include widthHeight(100%, 100px)
+	background: c.$black
+	box-sizing: border-box
+	border: solid c.$orange 4px
+	margin: .6em 0
+	color: c.$orange
+	font-weight: bold
+	padding: 1em
+	text-transform: uppercase
